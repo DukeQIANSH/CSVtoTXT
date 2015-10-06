@@ -13,7 +13,7 @@ for row in reader:        # simple counting procedure to go through the csv
         for cell in row:
             CellCount += 1
             if CellCount ==1:  # if we're in the row number one, we take the content and use it as the filename for a new text file
-                filename = cell + '.txt'
+                filename = cell[:50] + '.txt' # let's limit filename to 50 chars
                 f = open(filename, 'w', encoding="utf8")
             if CellCount == 3: # if we're in the row number three, we take the content and use it as the content of the previoulsy created file
                 f.write(cell)
